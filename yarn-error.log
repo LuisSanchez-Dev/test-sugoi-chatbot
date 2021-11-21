@@ -1,0 +1,160 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Luis\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add Multispinner
+
+PATH: 
+  C:\Program Files\AdoptOpenJDK\jdk-8.0.282.8-hotspot\bin;C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\wbin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\ImageMagick-7.0.10-Q16-HDRI;C:\Python38\Scripts\;C:\Python38\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Languages\IronPython 2.7;C:\Program Files\dotnet\;C:\Program Files\PuTTY\;C:\Program Files (x86)\GitExtensions\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\Luis\Google Drive\Path software;C:\Program Files\Pandoc\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;%NVM_HOME%;%NVM_SYMLINK%;C:\tools\php80;C:\ProgramData\ComposerSetup\bin;C:\Program Files\TortoiseGit\bin;C:\Python27;C:\Users\Luis\AppData\Local\Microsoft\WindowsApps;C:\Users\Luis\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Luis\.dotnet\tools;C:\Users\Luis\Google Drive\Path software;C:\Users\Luis\AppData\Roaming\npm;C:\Program Files\OpenSSL-Win64\bin;C:\Users\Luis\Google Drive\Path software\nw;C:\Users\Luis\AppData\Local\Android\Sdk\platform-tools;C:\Users\Luis\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Nmap;C:\Program Files\OpenJDK\jdk-14.0.2\bin;C:\Users\Luis\AppData\Roaming\Composer\vendor\bin;C:\xampp\php;
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  15.9.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/Multispinner: Not found
+      at Request.params.callback [as _callback] (C:\Users\Luis\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:67029:18)
+      at Request.self.callback (C:\Users\Luis\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140883:22)
+      at Request.emit (node:events:378:20)
+      at Request.<anonymous> (C:\Users\Luis\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141855:10)
+      at Request.emit (node:events:378:20)
+      at IncomingMessage.<anonymous> (C:\Users\Luis\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141777:12)
+      at Object.onceWrapper (node:events:484:28)
+      at IncomingMessage.emit (node:events:390:22)
+      at endReadableNT (node:internal/streams/readable:1307:12)
+      at processTicksAndRejections (node:internal/process/task_queues:81:21)
+
+npm manifest: 
+  {
+    "name": "sugoi-chatbot",
+    "version": "0.0.1",
+    "author": "Luis Sanchez <luis.sanchez.dev@hotmail.com>",
+    "description": "A sugoi chatbot for Twitch with a custom name",
+    "license": null,
+    "main": "./dist/electron/main.js",
+    "scripts": {
+      "build": "node .electron-vue/build.js && electron-builder",
+      "build:dir": "node .electron-vue/build.js && electron-builder --dir",
+      "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
+      "build:web": "cross-env BUILD_TARGET=web node .electron-vue/build.js",
+      "dev": "node .electron-vue/dev-runner.js",
+      "lint": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter src test",
+      "lint:fix": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter --fix src test",
+      "pack": "npm run pack:main && npm run pack:renderer",
+      "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
+      "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
+      "test": "npm run unit",
+      "unit": "karma start test/unit/karma.conf.js",
+      "postinstall": "npm run lint:fix"
+    },
+    "build": {
+      "productName": "sugoi-chatbot",
+      "appId": "dev.luissanchez.sugoi-chatbot",
+      "directories": {
+        "output": "build"
+      },
+      "files": [
+        "dist/electron/**/*"
+      ],
+      "dmg": {
+        "contents": [
+          {
+            "x": 410,
+            "y": 150,
+            "type": "link",
+            "path": "/Applications"
+          },
+          {
+            "x": 130,
+            "y": 150,
+            "type": "file"
+          }
+        ]
+      },
+      "mac": {
+        "icon": "build/icons/icon.icns"
+      },
+      "win": {
+        "icon": "build/icons/icon.ico"
+      },
+      "linux": {
+        "icon": "build/icons"
+      }
+    },
+    "dependencies": {
+      "vue": "^2.5.16",
+      "axios": "^0.18.0",
+      "vue-electron": "^1.0.6",
+      "vuex": "^3.0.1",
+      "vuex-electron": "^1.0.0"
+    },
+    "devDependencies": {
+      "ajv": "^6.5.0",
+      "babel-core": "^6.26.3",
+      "babel-loader": "^7.1.4",
+      "babel-plugin-transform-runtime": "^6.23.0",
+      "babel-preset-env": "^1.7.0",
+      "babel-preset-stage-0": "^6.24.1",
+      "babel-register": "^6.26.0",
+      "babel-minify-webpack-plugin": "^0.3.1",
+      "cfonts": "^2.1.2",
+      "chalk": "^2.4.1",
+      "copy-webpack-plugin": "^4.5.1",
+      "cross-env": "^5.1.6",
+      "css-loader": "^0.28.11",
+      "del": "^3.0.0",
+      "devtron": "^1.4.0",
+      "electron": "^2.0.4",
+      "electron-debug": "^1.5.0",
+      "electron-devtools-installer": "^2.2.4",
+      "electron-builder": "^20.19.2",
+      "babel-eslint": "^8.2.3",
+      "eslint": "^4.19.1",
+      "eslint-friendly-formatter": "^4.0.1",
+      "eslint-loader": "^2.0.0",
+      "eslint-plugin-html": "^4.0.3",
+      "eslint-config-standard": "^11.0.0",
+      "eslint-plugin-import": "^2.12.0",
+      "eslint-plugin-node": "^6.0.1",
+      "eslint-plugin-promise": "^3.8.0",
+      "eslint-plugin-standard": "^3.1.0",
+      "mini-css-extract-plugin": "0.4.0",
+      "file-loader": "^1.1.11",
+      "html-webpack-plugin": "^3.2.0",
+      "inject-loader": "^4.0.1",
+      "karma": "^2.0.2",
+      "karma-chai": "^0.1.0",
+      "karma-coverage": "^1.1.2",
+      "karma-electron": "^6.0.0",
+      "karma-mocha": "^1.3.0",
+      "karma-sourcemap-loader": "^0.3.7",
+      "karma-spec-reporter": "^0.0.32",
+      "karma-webpack": "^3.0.0",
+      "listr": "^0.14.3",
+      "babel-plugin-istanbul": "^4.1.6",
+      "chai": "^4.1.2",
+      "mocha": "^5.2.0",
+      "node-loader": "^0.6.0",
+      "node-sass": "^4.9.2",
+      "sass-loader": "^7.0.3",
+      "style-loader": "^0.21.0",
+      "url-loader": "^1.0.1",
+      "vue-html-loader": "^1.2.4",
+      "vue-loader": "^15.2.4",
+      "vue-style-loader": "^4.1.0",
+      "vue-template-compiler": "^2.5.16",
+      "webpack-cli": "^3.0.8",
+      "webpack": "^4.15.1",
+      "webpack-dev-server": "^3.1.4",
+      "webpack-hot-middleware": "^2.22.2",
+      "webpack-merge": "^4.1.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
